@@ -1,0 +1,13 @@
+openapi: 3.0.1
+info:
+  title: CleanAPI
+  description: API Definition of CleanAPI
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/clean
+paths:
+  /first:
+    get:
+      responses:
+        default:
+          description: Default response
