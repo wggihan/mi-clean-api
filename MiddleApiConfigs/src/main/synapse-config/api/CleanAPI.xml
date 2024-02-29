@@ -21,7 +21,7 @@
                             <oauth>
                                 <clientCredentials>
                                     <clientId>{get-property('env', 'ConsumerKey')}</clientId>
-                                    <clientSecret>{get-property('env', 'ConsumerSecret)}</clientSecret>
+                                    <clientSecret>{get-property('env', 'ConsumerSecret')}</clientSecret>
                                     <tokenUrl>{get-property('env', 'TokenURL')}</tokenUrl>
                                     <authMode>header</authMode>
                                 </clientCredentials>
