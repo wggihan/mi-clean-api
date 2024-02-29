@@ -8,7 +8,7 @@
             <property action="remove" name="Accept-Encoding" scope="transport"/>
             <call>
                 <endpoint>
-                    <http method="get" uri-template="get-property('SYSTEM', &quot;ServiceURL&quot;)">
+                    <http method="get" uri-template="get-property('env', 'ServiceURL')">
                         <suspendOnFailure>
                             <initialDuration>-1</initialDuration>
                             <progressionFactor>-1</progressionFactor>
@@ -20,9 +20,9 @@
                         <authentication>
                             <oauth>
                                 <clientCredentials>
-                                    <clientId>{get-property('SYSTEM', "ConsumerKey")}</clientId>
-                                    <clientSecret>{get-property('SYSTEM', "ConsumerSecret")}</clientSecret>
-                                    <tokenUrl>{get-property('SYSTEM', "TokenURL")}</tokenUrl>
+                                    <clientId>{get-property('env', "ConsumerKey")}</clientId>
+                                    <clientSecret>{get-property('env', "ConsumerSecret")}</clientSecret>
+                                    <tokenUrl>{get-property('env', "TokenURL")}</tokenUrl>
                                     <authMode>header</authMode>
                                 </clientCredentials>
                             </oauth>
