@@ -3,7 +3,7 @@
     <resource methods="GET" uri-template="/first">
         <inSequence>
             <log level="custom">
-                <property expression="$env:TokenURL" name="TokenURL"/>
+                <property expression="get-property('env', 'TokenURL')" name="TokenURL"/>
             </log>
             <property action="remove" name="Accept-Encoding" scope="transport"/>
             <call>
