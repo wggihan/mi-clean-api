@@ -22,7 +22,7 @@
                                 <clientCredentials>
                                     <clientId>{get-property('env', 'ConsumerKey')}</clientId>
                                     <clientSecret>{get-property('env', 'ConsumerSecret')}</clientSecret>
-                                    <tokenUrl>{get-property('env', 'TokenURL')}</tokenUrl>
+                                    <tokenUrl>https://sts.choreo.dev/oauth2/token</tokenUrl>
                                     <authMode>header</authMode>
                                 </clientCredentials>
                             </oauth>
