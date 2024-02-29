@@ -2,9 +2,10 @@
 <api context="/clean" name="CleanAPI" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="GET" uri-template="/first">
         <inSequence>
+            <property action="remove" name="Accept-Encoding" scope="transport"/>
             <call>
                 <endpoint>
-                    <http method="get" uri-template="$SYSTEM:HR_DEP_ENDPOINT">
+                    <http method="get" uri-template="$SYSTEM:ServiceURL">
                         <suspendOnFailure>
                             <initialDuration>-1</initialDuration>
                             <progressionFactor>-1</progressionFactor>
@@ -13,6 +14,16 @@
                         <markForSuspension>
                             <retriesBeforeSuspension>0</retriesBeforeSuspension>
                         </markForSuspension>
+                        <authentication>
+                            <oauth>
+                                <clientCredentials>
+                                    <clientId>{get-property('SYSTEM', "ConsumerKey")}</clientId>
+                                    <clientSecret>{get-property('SYSTEM', "ConsumerSecret")}</clientSecret>
+                                    <tokenUrl>{get-property('SYSTEM', "TokenURL")}</tokenUrl>
+                                    <authMode>header</authMode>
+                                </clientCredentials>
+                            </oauth>
+                        </authentication>
                     </http>
                 </endpoint>
             </call>
